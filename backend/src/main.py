@@ -1,7 +1,7 @@
-from fastapi import FastAPI 
+from fastapi import FastAPI
+
+from src.routes.todo import todo_route
 
 app = FastAPI()
 
-@app.get("/")
-async def read_root() -> dict[str,str]:
-    return {"Hello": "nasr"}
+app.include_router(todo_route)
